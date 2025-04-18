@@ -4,67 +4,37 @@ namespace MathCalculator
 {
     public class Calculator
     {
-        public void Sum()
+        public  double Sum(double num1, double num2)
         {
-            int num1, num2, answer;
-            Console.WriteLine("First Add");
-            Console.WriteLine("Enter a number");
-            num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Another one");
-            num2 = Convert.ToInt32(Console.ReadLine());
-
-            answer = num1 + num2;
-
-            Console.WriteLine($"The sum is {answer}");
-            Console.ReadLine();
+            return num1 + num2;
         }
-        public void Minus()
+        public  double Minus(double num1, double num2)
         {
-            int num1, num2, answer;
-
-            Console.WriteLine("Now Subtract");
-            Console.WriteLine("Enter a number");
-            num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Another one");
-            num2 = Convert.ToInt32(Console.ReadLine());
-
-            answer = num1 - num2;
-
-            Console.WriteLine($"The Differnce is {answer}");
-            Console.ReadLine();
+            return num1 - num2;
         }
-        public void Multiply()
+        public  double Multiply(double num1, double num2)
         {
-            int num1, num2, answer;
-            Console.WriteLine("Now Multiply");
-            Console.WriteLine("Enter a number");
-            num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Another one");
-            num2 = Convert.ToInt32(Console.ReadLine());
-
-            answer = num1 * num2;
-
-            Console.WriteLine($"The answer is {answer}");
-            Console.ReadLine();
+            return num1 * num2;
         }
-        public void Divide()
+        public  double Divide(double num1, double num2)
         {
-            int num1, num2, answer;
-            Console.WriteLine("Now Divide");
-            Console.WriteLine("Enter a number");
-            num1 = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Another one");
-            num2 = Convert.ToInt32(Console.ReadLine());
-
-            answer = num1 / num2;
-
-            Console.WriteLine($"The answer is {answer}");
-            Console.ReadLine();
+            while (num2 == 0)
+            {
+                Console.WriteLine("Can't divide by 0, try again");
+                num2 = GetValidNumber();
+                
+            }
+            return num1 / num2;
         }
+
+        public  double GetValidNumber()
+        {
+            double number;
+            while (!double.TryParse(Console.ReadLine(), out number))
+                Console.WriteLine("Please enter a valid number");
+            return number;
+        }
+        
     }
 }
 
